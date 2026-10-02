@@ -219,9 +219,9 @@ footer a:hover { color: var(--text); }
   body { font-size: 16px; }
   html { scroll-padding-top: 76px; }
   .wrap, .top .wrap { width: calc(100% - 32px); }
-  .top .wrap { height: 68px; gap: 8px; }
-  .brand { font-size: 28px; }
-  .top .brand-name { top: -3px; }
+  .top .wrap { height: 58px; gap: 8px; }
+  .top .brand { font-size: 22px; }
+  .top .brand-name { top: -2px; }
   footer .brand { font-size: 28px; }
   .top .btn { display: none; }
   .tools { gap: 8px; }
@@ -254,7 +254,7 @@ footer a:hover { color: var(--text); }
   footer nav a { display: inline-block; padding: 10px 0; }
 }
 @media (max-width: 360px) {
-  .brand { font-size: 24px; }
+  .top .brand { font-size: 20px; }
   .hero h1 { font-size: 32px; }
 }
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
