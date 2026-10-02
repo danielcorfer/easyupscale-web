@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="cs" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zásady ochrany soukromí — EasyUpscale</title>
+<meta name="robots" content="index,follow">
+<link rel="icon" type="image/png" href="img/easyupscale-mark.png">
+<script>try{var s=localStorage.getItem("eu-theme");document.documentElement.setAttribute("data-theme",s||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"))}catch(e){}</script>
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer></script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./" aria-label="EasyUpscale"><img class="brand-mark" src="img/mark.png" width="200" height="180" alt=""><span class="brand-name">Easy<span class="grad">Upscale</span></span></a>
+  <div class="tools" style="margin-left:auto"><button class="icon-btn" id="theme" type="button" aria-label="Přepnout vzhled"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg></button><a class="btn btn-ghost btn-sm" href="./">Zpět na web</a></div>
+</div></header>
+<main class="legal"><div class="wrap"><article>
+      <h1>Zásady ochrany soukromí – EasyUpscale</h1>
+      <p class="legal-note"><strong>Pracovní verze.</strong> Text popisuje, co aplikace skutečně dělá. Před vydáním ho nechte zkontrolovat právníkem a doplňte údaje o provozovateli.</p>
+      <h2>Stručně</h2>
+      <p>EasyUpscale zpracovává obrázky <strong>výhradně ve vašem počítači</strong>. Aplikace neodesílá vaše obrázky na internet a neobsahuje analytiku, telemetrii ani hlášení chyb. K internetu se připojuje jen při ověření licenčního klíče (viz níže).</p>
+      <h2>Co aplikace ukládá</h2>
+      <ul><li><strong>Nastavení</strong> (jazyk, zvolený režim, velikost okna, poslední volby) v souboru <code>%APPDATA%\EasyUpscale\settings.json</code>. Soubor zůstává ve vašem počítači a můžete ho kdykoli smazat.</li><li><strong>Výsledky</strong> ukládá pouze tam, kam sami určíte.</li><li><strong>Licenci</strong> v souboru <code>%APPDATA%\EasyUpscale\license.json</code> (nebo <code>license.key</code> u podepsaného klíče): licenční klíč, identifikátor aktivace, jméno zákazníka a datum posledního ověření. Odebráním licence v Aplikaci se soubor smaže.</li></ul>
+      <h2>Co aplikace nedělá</h2>
+      <ul><li>Nenahrává obrázky na servery ani do cloudu.</li><li>Bez licenčního klíče se k internetu nepřipojuje.</li><li>Nesbírá statistiky používání ani neodesílá hlášení chyb.</li></ul>
+      <h2>Kdy se aplikace připojuje k internetu</h2>
+      <p>Jen pokud zadáte licenční klíč prodaný přes Lemon Squeezy. Aplikace pak serveru <code>api.lemonsqueezy.com</code> odešle <strong>licenční klíč a název vašeho počítače</strong> (při aktivaci a poté vždy při spuštění, aby se ověřilo, že licence nebyla vrácena ani zablokována). Server vrací jméno zákazníka z objednávky. Žádné obrázky se neodesílají. Bez připojení licence dál funguje 30 dnů od posledního úspěšného ověření.</p>
+      <h2>Web a další služby</h2>
+      <p>Licence se prodává přes Lemon Squeezy (Lemon Squeezy, Inc., člen skupiny Stripe), který jako prodejce zpracovává platbu a osobní údaje z objednávky (jméno, e-mail, adresa, platební údaje) podle svých zásad: <a href="https://www.lemonsqueezy.com/privacy">https://www.lemonsqueezy.com/privacy</a>. Poskytovatel Aplikace tyto údaje v rozsahu objednávky vidí v administraci obchodu.</p>
+      <p><strong>Web easyupscale.cz</strong> nepoužívá cookies ani analytiku a nenačítá nic od třetích stran, dokud nekliknete na „Koupit licenci“. Teprve pak se z domény Lemon Squeezy načte pokladna (okno pro platbu), která podléhá zásadám Lemon Squeezy. Volba vzhledu (světlý/tmavý) se ukládá jen ve vašem prohlížeči. <code>[Doplnit údaje o provozovateli webu a případné další služby, např. hosting a poštu.]</code></p>
+      <h2>Kontakt</h2>
+      <p><code>[Doplnit jméno / firmu provozovatele a kontaktní e-mail, např. podpora@easyupscale.cz.]</code></p>
+</article></div></main>
+<footer><div class="wrap"><span>© 2026 EasyUpscale</span><nav><a href="eula.html">Licenční smlouva</a><a href="soukromi.html">Zásady soukromí</a></nav></div></footer>
+</body>
+</html>
