@@ -48,6 +48,9 @@ p { margin: 0; }
 .skip:focus { left: 12px; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 
+/* the EasyUpscale lettering: Outfit (SIL Open Font License), served from this site */
+@font-face { font-family: "Outfit"; src: url("fonts/Outfit.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+
 /* theme-dependent images: only the matching one is shown */
 .only-light { display: block; }
 .only-dark { display: none; }
@@ -57,7 +60,7 @@ html[data-theme="dark"] .only-dark { display: block; }
 /* header */
 .top { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
 .top .wrap { display: flex; align-items: center; gap: 28px; height: 100px; width: min(1320px, 100% - 40px); }
-.brand { display: inline-flex; align-items: baseline; gap: .04em; text-decoration: none; font: 800 clamp(34px, 4.6vw, 62px)/1 var(--font-display); letter-spacing: -.035em; color: var(--text); white-space: nowrap; }
+.brand { display: inline-flex; align-items: baseline; gap: .04em; text-decoration: none; font: 800 clamp(34px, 4.6vw, 62px)/1 "Outfit", var(--font-display); letter-spacing: -.02em; color: var(--text); white-space: nowrap; }
 .brand-mark { height: 1em; width: auto; flex: none; align-self: baseline; }
 .brand-name { display: inline-block; }
 .top .brand-name { position: relative; top: -5px; }      /* the title text sits 5px higher than the baseline; the icon stays where it was */
