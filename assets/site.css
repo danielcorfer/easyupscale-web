@@ -68,9 +68,15 @@ html[data-theme="dark"] .only-dark { display: block; }
 .nav a { text-decoration: none; padding: 6px 2px; }
 .nav a:hover { color: var(--text); }
 .tools { display: flex; align-items: center; gap: 10px; }
-.lang { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; font-size: 13px; font-weight: 600; }
-.lang a { text-decoration: none; padding: 6px 11px; color: var(--muted); }
-.lang a[aria-current="true"] { background: var(--accent-soft); color: var(--accent-strong); }
+.lang { position: relative; font-size: 13px; font-weight: 700; }
+.lang summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px; height: 38px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--surface); user-select: none; }
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary::after { content: ""; width: 6px; height: 6px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); }
+.lang[open] summary, .lang summary:hover { border-color: var(--accent); color: var(--text); }
+.lang ul { position: absolute; right: 0; top: calc(100% + 8px); margin: 0; padding: 6px; list-style: none; min-width: 160px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); z-index: 60; }
+.lang a { display: block; padding: 10px 12px; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 600; color: var(--text); }
+.lang a:hover { background: var(--accent-soft); }
+.lang a[aria-current="true"] { color: var(--accent-strong); background: var(--accent-soft); }
 .icon-btn { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--text); display: grid; place-items: center; cursor: pointer; }
 .icon-btn:hover { border-color: var(--accent); }
 .icon-btn svg { width: 18px; height: 18px; }
@@ -231,7 +237,7 @@ footer a:hover { color: var(--text); }
   footer .brand { font-size: 28px; }
   .top .btn { display: none; }
   .tools { gap: 8px; }
-  .lang a { padding: 10px 13px; }
+  .lang summary { height: 44px; padding: 0 12px; }
   .icon-btn { width: 44px; height: 44px; }
   .actions .btn { width: 100%; }
   .lead { font-size: 17px; }

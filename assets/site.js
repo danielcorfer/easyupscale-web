@@ -18,6 +18,13 @@
     });
   }
 
+  // the language menu closes when you click elsewhere or press Escape
+  var menu = document.querySelector("details.lang");
+  if (menu) {
+    document.addEventListener("click", function (event) { if (!menu.contains(event.target)) { menu.removeAttribute("open"); } });
+    document.addEventListener("keydown", function (event) { if (event.key === "Escape") { menu.removeAttribute("open"); } });
+  }
+
   // before / after: the hidden range input does the work (mouse, touch and keyboard)
   document.querySelectorAll("[data-compare]").forEach(function (box) {
     var range = box.querySelector("input[type=range]");
