@@ -45,25 +45,4 @@
   } else {
     items.forEach(function (item) { item.classList.add("in"); });
   }
-
-  // buying on the page: the Lemon Squeezy checkout opens as an overlay. Its script is loaded only when someone clicks "Buy",
-  // so the page itself makes no third-party requests. Without JavaScript the link simply opens the hosted checkout.
-  var LEMON = "https://assets.lemonsqueezy.com/lemon.js";
-  document.querySelectorAll("a[data-checkout]").forEach(function (link) {
-    link.addEventListener("click", function (event) {
-      var open = function () {
-        try {
-          if (window.createLemonSqueezy) { window.createLemonSqueezy(); }
-          window.LemonSqueezy.Url.Open(link.href + (link.href.indexOf("?") < 0 ? "?embed=1" : "&embed=1"));
-        } catch (e) { window.location.href = link.href; }
-      };
-      event.preventDefault();
-      if (window.LemonSqueezy) { open(); return; }
-      var script = document.createElement("script");
-      script.src = LEMON;
-      script.onload = open;
-      script.onerror = function () { window.location.href = link.href; };
-      document.head.appendChild(script);
-    });
-  });
 })();
