@@ -119,6 +119,11 @@ html[data-theme="dark"] .moon { display: none; }
 .tag { position: absolute; top: 14px; padding: 5px 11px; border-radius: 999px; background: rgba(15, 10, 30, .72); color: #fff; font-size: 12px; font-weight: 700; backdrop-filter: blur(6px); pointer-events: none; }
 .tag-l { left: 14px; } .tag-r { right: 14px; }
 .trial { margin-top: 18px; padding: 12px 16px; border-radius: 14px; background: var(--accent-soft); border: 1px solid var(--line); color: var(--text); font-size: 15px; line-height: 1.5; max-width: 520px; }
+.alert { display: flex; gap: 12px; align-items: flex-start; margin-top: 18px; padding: 14px 16px; max-width: 520px; border-radius: 14px; border: 2px solid #e9a21b; background: #fff6e0; color: #4a3200; font-size: 15px; line-height: 1.5; }
+.alert svg { flex: none; width: 26px; height: 26px; color: #c77d00; margin-top: 1px; }
+.alert strong { display: block; margin-bottom: 2px; font-size: 16px; }
+html[data-theme="dark"] .alert { background: #2d2108; border-color: #e9a21b; color: #ffe2a3; }
+html[data-theme="dark"] .alert svg { color: #f5b73c; }
 .sales-note { margin-top: 12px; color: var(--muted); font-size: 14px; line-height: 1.5; }
 .cap { display: flex; justify-content: space-between; color: var(--faint); font-size: 14px; margin-top: 12px; }
 
