@@ -89,6 +89,8 @@ html[data-theme="dark"] .moon { display: none; }
 .btn:hover { transform: translateY(-1px); }
 .btn-primary { background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: #fff; box-shadow: 0 12px 30px -10px rgba(109, 40, 217, .6); }
 .btn-primary:hover { box-shadow: 0 16px 36px -10px rgba(109, 40, 217, .75); }
+.btn-buy { background: var(--text); color: var(--bg); border-color: var(--text); font-weight: 800; }
+.btn-buy:hover { box-shadow: 0 0 0 3px var(--accent-soft), 0 12px 30px -12px rgba(109, 40, 217, .5); }
 .btn-ghost { background: var(--surface); color: var(--text); border-color: var(--line); }
 .btn-ghost:hover { border-color: var(--accent); }
 .btn[aria-disabled="true"] { opacity: .65; cursor: default; transform: none; }
