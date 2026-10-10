@@ -9,6 +9,7 @@
   --faint: #8b86a0;
   --line: #e3def0;
   --accent: #7c3aed;
+  --license: #9c5200;
   --accent-strong: #6d28d9;
   --accent-soft: #efe7ff;
   --pink: #e07bf8;
@@ -29,6 +30,7 @@ html[data-theme="dark"] {
   --faint: #7f7898;
   --line: #2a2340;
   --accent: #8b5cf6;
+  --license: #ffb454;
   --accent-strong: #a78bfa;
   --accent-soft: #231a40;
   --ok: #3ddc97;
@@ -91,6 +93,9 @@ html[data-theme="dark"] .moon { display: none; }
 .btn-primary:hover { box-shadow: 0 16px 36px -10px rgba(109, 40, 217, .75); }
 .btn-buy { background: var(--text); color: var(--bg); border-color: var(--text); font-weight: 800; }
 .btn-buy:hover { box-shadow: 0 0 0 3px var(--accent-soft), 0 12px 30px -12px rgba(109, 40, 217, .5); }
+/* "Buy a license": the amber outline of the licence chip in the app, a violet wash on hover */
+.btn-license { background: transparent; color: var(--license); border-color: var(--license); font-weight: 700; }
+.btn-license:hover { background: rgba(124, 58, 237, .16); color: var(--text); border-color: var(--accent); }
 .btn-ghost { background: var(--surface); color: var(--text); border-color: var(--line); }
 .btn-ghost:hover { border-color: var(--accent); }
 .btn[aria-disabled="true"] { opacity: .65; cursor: default; transform: none; }
@@ -243,7 +248,7 @@ footer a:hover { color: var(--text); }
   .top .brand { font-size: 22px; }
   .top .brand-name { top: -2px; }
   footer .brand { font-size: 28px; }
-  .top .btn-ghost { display: none; }
+  .top .btn-dl { display: none; }
   .top .btn-cta { height: 42px; padding: 0 14px; font-size: 15px; }
   .tools { gap: 8px; }
   .lang summary { height: 44px; padding: 0 12px; }
