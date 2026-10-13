@@ -292,11 +292,11 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .trio figcaption { margin-top: 10px; font-weight: 650; text-align: center; }
 .trio figure:last-child figcaption { color: var(--accent-strong); }
 @media (max-width: 700px) { .trio { grid-template-columns: 1fr; } }
-.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.gallery { display: grid; grid-template-columns: 1fr; gap: 28px; }
 .shotcard { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 18px 22px; display: flex; flex-direction: column; gap: 14px; }
 .shotcard.wide { grid-column: span 2; }
 .shotimg { display: grid; place-items: center; min-height: 0; }
-.shotimg img { max-width: 100%; height: auto; max-height: 560px; border-radius: 12px; }
+.shotimg img { display: block; width: 100%; max-width: 100%; height: auto; max-height: none; border-radius: 12px; }
 .shotcard.wide .shotimg img { max-height: none; width: 100%; border: 1px solid var(--line); box-shadow: var(--shadow); }
 .shotcard figcaption { display: grid; gap: 4px; }
 .shotcard figcaption span { color: var(--muted); font-size: 16px; }
