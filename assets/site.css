@@ -39,7 +39,7 @@ html[data-theme="dark"] {
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 116px; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body { margin: 0; background: var(--bg); color: var(--text); font: 400 17px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
@@ -61,11 +61,11 @@ html[data-theme="dark"] .only-dark { display: block; }
 
 /* header */
 .top { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
-.top .wrap { display: flex; align-items: center; gap: 28px; height: 100px; width: min(1320px, 100% - 40px); }
-.brand { display: inline-flex; align-items: baseline; gap: .04em; text-decoration: none; font: 800 clamp(34px, 4.6vw, 62px)/1 "Outfit", var(--font-display); letter-spacing: -.02em; color: var(--text); white-space: nowrap; }
+.top .wrap { display: flex; align-items: center; gap: 24px; height: 68px; width: min(1320px, 100% - 40px); }
+.brand { display: inline-flex; align-items: baseline; gap: .04em; text-decoration: none; font: 800 clamp(26px, 2.6vw, 36px)/1 "Outfit", var(--font-display); letter-spacing: -.02em; color: var(--text); white-space: nowrap; }
 .brand-mark { height: 1em; width: auto; flex: none; align-self: baseline; }
 .brand-name { display: inline-block; }
-.top .brand-name { position: relative; top: -5px; }      /* the title text sits 5px higher than the baseline; the icon stays where it was */
+.top .brand-name { position: relative; top: -3px; }      /* the title text sits a little higher than the baseline; the icon stays where it was */
 .nav { display: flex; gap: 26px; margin-left: auto; font-size: 15px; color: var(--muted); }
 .nav a { text-decoration: none; padding: 6px 2px; }
 .nav a:hover { color: var(--text); }
@@ -102,16 +102,25 @@ html[data-theme="dark"] .moon { display: none; }
 .btn-sm { height: 40px; padding: 0 16px; font-size: 14px; border-radius: 12px; }
 .btn-cta { height: 46px; padding: 0 26px; font-size: 16px; font-weight: 800; border-radius: 14px; }
 
-/* hero */
-.hero { padding: 72px 0 40px; }
-.hero .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
+/* hero: the headline, the two buttons and the real app window, centred */
+.hero { padding: 64px 0 56px; position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: -20% -10% auto; height: 70%; background: radial-gradient(60% 60% at 50% 0%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 70%); pointer-events: none; }
+.hero .wrap { position: relative; display: grid; gap: 52px; justify-items: center; }
+.hero-text { text-align: center; max-width: 860px; display: flex; flex-direction: column; align-items: center; }
+.hero-shot { width: min(1180px, 100%); }
+.window { border-radius: 16px; overflow: hidden; border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line)); box-shadow: 0 40px 90px -30px rgba(76, 29, 149, .55), 0 2px 10px rgba(0, 0, 0, .25); background: var(--surface); }
+.window img { width: 100%; height: auto; }
+.smartnote { display: flex; gap: 10px; align-items: flex-start; max-width: 760px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.smartnote svg { flex: none; width: 18px; height: 18px; margin-top: 2px; color: #c77d00; }
+.smartnote strong { color: var(--text); font-weight: 650; }
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-strong); }
 .eyebrow::before { content: ""; width: 22px; height: 2px; background: linear-gradient(90deg, var(--pink), var(--accent)); border-radius: 2px; }
-.hero h1 { font-size: clamp(40px, 5.2vw, 66px); margin: 18px 0 20px; }
+.hero h1 { font-size: clamp(40px, 6vw, 76px); margin: 18px 0 20px; }
 .hero h1 em, .grad { font-style: normal; background: linear-gradient(100deg, var(--pink), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.lead { font-size: 19px; color: var(--muted); max-width: 520px; }
-.actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 30px 0 22px; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 0; margin: 0; list-style: none; color: var(--muted); font-size: 14px; }
+.lead { font-size: 20px; color: var(--muted); max-width: 640px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 30px 0 22px; justify-content: center; }
+.btn-lg { height: 56px; padding: 0 30px; font-size: 17px; border-radius: 16px; }
+.chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; padding: 0; margin: 0; list-style: none; color: var(--muted); font-size: 14px; }
 .chips li::before { content: "✓"; color: var(--ok); font-weight: 800; margin-right: 8px; }
 
 /* before / after */
@@ -229,7 +238,7 @@ footer a:hover { color: var(--text); }
 }
 
 @media (max-width: 960px) {
-  .hero .wrap, .privacy { grid-template-columns: 1fr; gap: 36px; }
+  .privacy { grid-template-columns: 1fr; gap: 36px; }
   .nav { display: none; }
   .top .wrap { gap: 12px; }
   .tools { margin-left: auto; }
@@ -302,3 +311,14 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .shotcard figcaption span { color: var(--muted); font-size: 16px; }
 @media (max-width: 900px) { .gallery { grid-template-columns: 1fr; } .shotcard.wide { grid-column: auto; } }
 @media (max-width: 380px) { .top .icon-btn { display: none; } .top .brand { font-size: 20px; } }
+
+.hero-compare { max-width: 900px; margin: 0 auto 40px; }
+.hero-compare .cap { justify-content: center; text-align: center; }
+.stat { text-align: center; }
+.gallery { grid-template-columns: 1fr 1fr; }
+.shotcard.wide { grid-column: span 2; }
+.js .rise { transition-delay: 0s; }
+@media (max-width: 960px) { .hero { padding-top: 40px; } .hero .wrap { gap: 36px; } .gallery { grid-template-columns: 1fr; } .shotcard.wide { grid-column: auto; } }
+@media (max-width: 520px) { .btn-lg { height: 52px; } .hero-text .lead { font-size: 17px; } .smartnote { font-size: 13px; } }
+
+.pricing, .faq { margin-inline: auto; }

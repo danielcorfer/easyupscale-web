@@ -62,7 +62,7 @@
       entries.forEach(function (entry) {
         if (entry.isIntersecting) { entry.target.classList.add("in"); seen.unobserve(entry.target); }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0, rootMargin: "0px 0px -6% 0px" });
     items.forEach(function (item) { seen.observe(item); });
   } else {
     items.forEach(function (item) { item.classList.add("in"); });
