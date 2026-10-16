@@ -327,3 +327,4 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .window .compare.window-compare { border-radius: 0; box-shadow: none; background: transparent; }
 .window-compare .line { bottom: auto; }
 .shotimg .window-compare { width: 100%; border-radius: 12px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.version { margin-top: 14px; color: var(--faint); font-size: 14px; }
