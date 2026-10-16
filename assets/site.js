@@ -18,28 +18,8 @@
     });
   }
 
-  // language: a first visit to a home page goes to the language of the browser; a choice made in the menu is remembered
+  // language: the site opens in English; visitors pick another language in the menu (no automatic redirect by browser language)
   var menu = document.querySelector("details.lang");
-  if (menu && menu.hasAttribute("data-home")) {
-    var chosen = null;
-    try { chosen = localStorage.getItem("eu-lang"); } catch (e) {}
-    var links = menu.querySelectorAll("a[hreflang]");
-    var current = menu.querySelector("a[aria-current]");
-    if (!chosen && current && !window.location.search && !window.location.hash) {
-      var wanted = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"]);
-      for (var i = 0; i < wanted.length; i++) {
-        var code = String(wanted[i]).toLowerCase().split("-")[0];
-        var match = Array.prototype.find.call(links, function (a) { return a.getAttribute("hreflang") === code; });
-        if (match) {
-          if (match !== current) { window.location.replace(match.getAttribute("href")); }
-          break;
-        }
-      }
-    }
-    links.forEach(function (a) {
-      a.addEventListener("click", function () { try { localStorage.setItem("eu-lang", a.getAttribute("hreflang")); } catch (e) {} });
-    });
-  }
 
   // the language menu closes when you click elsewhere or press Escape
   if (menu) {
