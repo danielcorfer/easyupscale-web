@@ -50,7 +50,8 @@
   // before / after: the hidden range input does the work (mouse, touch and keyboard)
   document.querySelectorAll("[data-compare]").forEach(function (box) {
     var range = box.querySelector("input[type=range]");
-    var set = function () { box.style.setProperty("--pos", range.value + "%"); };
+    var left = parseFloat(box.getAttribute("data-l") || "0"), span = parseFloat(box.getAttribute("data-w") || "100");  // a window picture: the slider moves over its picture area only
+    var set = function () { box.style.setProperty("--pos", (left + range.value * span / 100) + "%"); };
     range.addEventListener("input", set);
     set();
   });

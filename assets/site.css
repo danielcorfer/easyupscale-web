@@ -322,3 +322,8 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 @media (max-width: 520px) { .btn-lg { height: 52px; } .hero-text .lead { font-size: 17px; } .smartnote { font-size: 13px; } }
 
 .pricing, .faq { margin-inline: auto; }
+
+/* the app window as a slider: it has the window's own proportions, no rounded frame of its own */
+.window .compare.window-compare { border-radius: 0; box-shadow: none; background: transparent; }
+.window-compare .line { bottom: auto; }
+.shotimg .window-compare { width: 100%; border-radius: 12px; border: 1px solid var(--line); box-shadow: var(--shadow); }
