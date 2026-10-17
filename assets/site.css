@@ -331,3 +331,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .window-compare .line { bottom: auto; }
 .shotimg .window-compare { width: 100%; border-radius: 12px; border: 1px solid var(--line); box-shadow: var(--shadow); }
 .version { margin-top: 14px; color: var(--faint); font-size: 14px; }
+
+/* the screenshots of the app come in a dark and a light version; the one of the chosen theme is shown */
+html[data-theme="light"] .t-dark { display: none; }
+html[data-theme="dark"] .t-light { display: none; }
