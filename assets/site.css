@@ -188,6 +188,9 @@ section { padding: 90px 0; }
 .plan h3 { font-size: 26px; }
 .price { font: 800 40px var(--font-display); letter-spacing: -.03em; }
 .price small { font: 500 16px var(--font); color: var(--muted); letter-spacing: 0; }
+.offer { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; color: var(--muted); font: 600 15px var(--font); }
+.offer s { text-decoration-thickness: 2px; }
+.offer-tag { background: var(--accent, #7c3aed); color: #fff; border-radius: 999px; padding: 3px 12px; font: 700 12px var(--font); letter-spacing: .04em; text-transform: uppercase; }
 .plan ul { list-style: none; margin: 4px 0 8px; padding: 0; display: grid; gap: 10px; color: var(--muted); font-size: 16px; }
 .plan li::before { content: "✓"; color: var(--ok); font-weight: 800; margin-right: 10px; }
 .plan .btn { margin-top: auto; }
