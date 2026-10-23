@@ -95,10 +95,10 @@ async function runTile(sess, input) {
 }
 
 let markImage, watermarkPatch = null;
-async function drawWatermark(ctx, width, height) { // small, semi-transparent badge bottom right; drawn into the result so preview and download match
+async function drawWatermark(ctx, width, height) { // large, semi-transparent badge bottom right; drawn into the result so preview and download match
   markImage ??= await new Promise((resolve) => { const i = new Image(); i.onload = () => resolve(i); i.onerror = () => resolve(null); i.src = asset("assets/mark.png"); });
   try { await document.fonts.load("700 20px Outfit"); } catch { /* fall back to the system font */ }
-  const size = Math.max(13, Math.round(Math.min(width, height) * 0.032)), pad = size * 0.55, icon = markImage ? size * 1.5 : 0, gap = markImage ? size * 0.4 : 0;
+  const size = Math.max(26, Math.round(Math.min(width, height) * 0.07)), pad = size * 0.55, icon = markImage ? size * 1.5 : 0, gap = markImage ? size * 0.4 : 0;
   ctx.save();
   ctx.font = `700 ${size}px Outfit, "Segoe UI", sans-serif`; ctx.textBaseline = "middle";
   const textWidth = ctx.measureText(WATERMARK_TEXT).width, boxW = pad * 2 + icon + gap + textWidth, boxH = size * 1.5 + pad * 0.8;
