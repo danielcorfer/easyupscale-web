@@ -423,4 +423,6 @@ html.v1 body { background: radial-gradient(640px 520px at 8% -6%, #ffe3f1, trans
 .v1 .demo { padding-top: 72px; text-align: center; }
 .v1 .demo .lead { margin: 0 auto 28px; max-width: 56ch; }
 .v1 .demo .drop { max-width: 640px; margin-inline: auto; }
+.v1 .tryit { border-color: var(--accent); color: var(--accent-strong); }
+.v1 .demo { margin-top: 48px; padding: 48px 28px 40px; background: var(--surface); border: 1px solid var(--line); border-radius: 36px; box-shadow: var(--shadow); }
 
