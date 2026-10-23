@@ -374,6 +374,14 @@ figure.demo figcaption { margin-top: 10px; font-size: 13px; text-align: center; 
 .exgrid .static-compare { aspect-ratio: 3 / 2; }
 .exgrid figcaption { margin-top: 10px; font-weight: 600; color: var(--muted); text-align: center; }
 @media (max-width: 760px) { .exgrid { grid-template-columns: 1fr; } }
+.exgrid figure:last-child:nth-child(odd) { grid-column: 1 / -1; width: calc(50% - 9px); justify-self: center; }
+.exnote { margin: 16px 0 0; font-size: 13px; text-align: center; }
+@media (max-width: 760px) { .exgrid figure:last-child:nth-child(odd) { width: 100%; } }
+/* the examples are large: one per row, as wide as the page allows */
+.exgrid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+.exgrid figure { max-width: 1100px; margin-inline: auto; width: 100%; }
+.exgrid figure:last-child:nth-child(odd) { width: 100%; }
+.exgrid figcaption { font-size: 17px; margin-top: 12px; }
 
 /* Návrh 1 – světlý magazín: velká typografie vlevo, ukázka vpravo, měkké pastelové plochy, kulatá tlačítka. */
 html.v1 { color-scheme: light; --bg: #fffaf4; --bg-soft: #f7efe6; --surface: #ffffff; --text: #1b1530; --muted: #6b6482; --line: #eee3d8; --accent: #7c3aed; --accent-strong: #6d28d9; --accent-soft: #f3ebff; --radius: 28px; --shadow: 0 30px 70px -30px rgba(90, 40, 160, .35), 0 2px 10px rgba(27, 21, 48, .05); }
