@@ -335,3 +335,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 /* the screenshots of the app come in a dark and a light version; the one of the chosen theme is shown */
 html[data-theme="light"] .t-dark { display: none; }
 html[data-theme="dark"] .t-light { display: none; }
+
+/* small landing pages: the app window under the first paragraph */
+.lp-shot { margin: 24px 0; }
+.lp-shot img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line, rgba(128, 128, 128, .3)); }

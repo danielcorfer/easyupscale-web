@@ -94,20 +94,22 @@ async function runTile(sess, input) {
   return result[sess.outputNames[0]].getData();
 }
 
-let watermarkPatch = null;
-async function drawWatermark(ctx, width, height) { // sharp diagonal text rows over the whole result; drawn into the result so preview and download match
+let markImage, watermarkPatch = null;
+async function drawWatermark(ctx, width, height) { // small, semi-transparent badge bottom right; drawn into the result so preview and download match
+  markImage ??= await new Promise((resolve) => { const i = new Image(); i.onload = () => resolve(i); i.onerror = () => resolve(null); i.src = asset("assets/mark.png"); });
   try { await document.fonts.load("700 20px Outfit"); } catch { /* fall back to the system font */ }
-  const copy = document.createElement("canvas"); copy.width = width; copy.height = height; copy.getContext("2d").drawImage(ctx.canvas, 0, 0);
-  watermarkPatch = { canvas: copy }; // the clean result, kept so a licence key can take the mark off
-  const size = Math.max(22, Math.round(Math.min(width, height) * 0.05)), stepY = size * 2.6, label = WATERMARK_TEXT + "      ";
+  const size = Math.max(13, Math.round(Math.min(width, height) * 0.032)), pad = size * 0.55, icon = markImage ? size * 1.5 : 0, gap = markImage ? size * 0.4 : 0;
   ctx.save();
-  ctx.font = `700 ${size}px Outfit, "Segoe UI", sans-serif`; ctx.textBaseline = "middle"; ctx.lineJoin = "round";
-  ctx.lineWidth = size * 0.14; ctx.strokeStyle = "rgba(0,0,0,0.85)"; ctx.fillStyle = "rgba(255,255,255,0.9)";
-  const stepX = ctx.measureText(label).width, reach = Math.hypot(width, height);
-  ctx.translate(width / 2, height / 2); ctx.rotate(-Math.PI / 6);
-  for (let row = 0, y = -reach / 2; y < reach / 2; row++, y += stepY) {
-    for (let x = -reach / 2 - (row % 2) * stepX / 2; x < reach / 2; x += stepX) { ctx.strokeText(label, x, y); ctx.fillText(label, x, y); }
-  }
+  ctx.font = `700 ${size}px Outfit, "Segoe UI", sans-serif`; ctx.textBaseline = "middle";
+  const textWidth = ctx.measureText(WATERMARK_TEXT).width, boxW = pad * 2 + icon + gap + textWidth, boxH = size * 1.5 + pad * 0.8;
+  const x = width - boxW - size * 0.8, y = height - boxH - size * 0.8;
+  const px = Math.max(0, Math.floor(x) - 2), py = Math.max(0, Math.floor(y) - 2);
+  watermarkPatch = { x: px, y: py, data: ctx.getImageData(px, py, Math.min(width - px, Math.ceil(boxW) + 6), Math.min(height - py, Math.ceil(boxH) + 6)) };
+  ctx.globalAlpha = 0.72; ctx.fillStyle = "#0d0a16";
+  ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, boxW, boxH, boxH / 2); else ctx.rect(x, y, boxW, boxH); ctx.fill();
+  ctx.globalAlpha = 1;
+  if (markImage) ctx.drawImage(markImage, x + pad, y + (boxH - icon) / 2, icon, icon);
+  ctx.fillStyle = "#fff"; ctx.fillText(WATERMARK_TEXT, x + pad + icon + gap, y + boxH / 2 + size * 0.04);
   ctx.restore();
 }
 
@@ -249,9 +251,9 @@ function setLicensed(on) {
   if (on) $("unlock").hidden = true;
 }
 
-function removeBadge() { // take the watermark off the result on screen (the clean result was kept)
+function removeBadge() { // take the badge off the result on screen (the pixels under it were kept, no second copy of the image)
   if (!watermarkPatch) return;
-  $("dst").getContext("2d").drawImage(watermarkPatch.canvas, 0, 0);
+  $("dst").getContext("2d").putImageData(watermarkPatch.data, watermarkPatch.x, watermarkPatch.y);
   watermarkPatch = null; refreshDownload();
 }
 async function applyLicence() { setLicensed(true); removeBadge(); }
