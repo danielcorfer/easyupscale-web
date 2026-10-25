@@ -138,7 +138,7 @@ a.ghost { text-decoration: none; display: inline-flex; align-items: center; }
 
 @media (max-width: 760px) {
   .shots { grid-template-columns: 1fr; }
-  .nav a:not(.primary) { display: none; }
+  .nav > a:not(.primary) { display: none; }
   .chips { display: none; }
   .nav { margin-left: auto; }
   .cmp thead { display: none; }
@@ -425,4 +425,14 @@ html.v1 body { background: radial-gradient(640px 520px at 8% -6%, #ffe3f1, trans
 body.has-image .democard { display: none; }
 .v1 .stage { align-items: start; }
 @media (max-width: 600px) { .v1 .apphero .lead { display: none; } .v1 h1 { font-size: 40px; } }
+.v1 .langs summary { gap: 6px; padding: 0 10px; height: 38px; font-size: 13px; letter-spacing: .03em; }
+.v1 .langs summary svg { flex: none; }
+@media (max-width: 480px) {
+  .v1 .bar { gap: 8px; }
+  .v1 .brand .word { white-space: nowrap; font-size: 18px; }
+  .v1 .brand img { width: 30px; height: 30px; }
+  .v1 .nav { gap: 8px; margin-left: auto; }
+  .v1 .nav .primary.small { padding: 8px 14px; font-size: 14px; }
+  .v1 .langs ul { position: fixed; right: 16px; left: 16px; top: 70px; min-width: 0; max-height: 70vh; }
+}
 
