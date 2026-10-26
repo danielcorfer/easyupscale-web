@@ -1,11 +1,11 @@
 // Settings of the web demo. Links are the same ones the website uses (tools/build_site.py: DOWNLOAD_URL, BUY_URL, SITE_URL).
 export const OUT_SCALE = 2; // the free app enlarges 2x, 4x needs the licence: the demo follows the free tier (the networks make 4x, the result is scaled down)
 export const WATERMARK_TEXT = "easyupscaleai.com"; // sharp text rows across the whole demo result (the app has none)
-export const PRICE = "14,99 €";
+export const PRICE = "8,99 €";
 export const LINKS = {
   clean: "", // filled from CLEAN_BUY_URL below
   download: "https://apps.microsoft.com/detail/9NBXJTP02Q2G",
-  buy: "https://buy.polar.sh/polar_cl_Kvqhz63szGGnNM8HHYlhSbUIsm6lb3N0iLccO4RdxQz",
+  buy: "https://apps.microsoft.com/detail/9NBXJTP02Q2G",
   home: "https://easyupscaleai.com/cs/",
   privacy: "https://easyupscaleai.com/cs/privacy.html",
   refund: "https://easyupscaleai.com/cs/refund.html",

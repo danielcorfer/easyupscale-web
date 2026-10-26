@@ -293,7 +293,7 @@
   "faq.a8": "Zvětšování probíhá offline. Licenční klíč se aktivuje online a aplikace ho při spuštění ověří. Bez internetu licence vydrží 7 dní, pak je potřeba se připojit.",
   "faq.q9": "Jaké jsou požadavky na aplikaci?",
   "faq.a9": "Windows 10 (verze 1903 nebo novější) nebo Windows 11, 64 bit, grafická karta s podporou DirectX 12, asi 1 GB místa na disku a doporučeno 8 GB paměti.",
-  "price": "14,99 €",
+  "price": "8,99 €",
   "unlock.button": "Čistý výsledek bez vodoznaku",
   "unlock.title": "Získejte výsledek bez vodoznaku",
   "unlock.text": "Kupte klíč a zadejte ho níže. Čistý výsledek tohoto obrázku stojí {cleanPrice}. Plná licence stojí {price}: čisté výsledky bez omezení a v aplikaci pro Windows navíc Pokročilý režim, 4×, dávky a další formáty.",
