@@ -9,6 +9,7 @@
   --faint: #8b86a0;
   --line: #e3def0;
   --accent: #7c3aed;
+  --license: #9c5200;
   --accent-strong: #6d28d9;
   --accent-soft: #efe7ff;
   --pink: #e07bf8;
@@ -29,6 +30,7 @@ html[data-theme="dark"] {
   --faint: #7f7898;
   --line: #2a2340;
   --accent: #8b5cf6;
+  --license: #ffb454;
   --accent-strong: #a78bfa;
   --accent-soft: #231a40;
   --ok: #3ddc97;
@@ -37,7 +39,7 @@ html[data-theme="dark"] {
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 116px; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body { margin: 0; background: var(--bg); color: var(--text); font: 400 17px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
@@ -59,15 +61,15 @@ html[data-theme="dark"] .only-dark { display: block; }
 
 /* header */
 .top { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
-.top .wrap { display: flex; align-items: center; gap: 28px; height: 100px; width: min(1320px, 100% - 40px); }
-.brand { display: inline-flex; align-items: baseline; gap: .04em; text-decoration: none; font: 800 clamp(34px, 4.6vw, 62px)/1 "Outfit", var(--font-display); letter-spacing: -.02em; color: var(--text); white-space: nowrap; }
+.top .wrap { display: flex; align-items: center; gap: 24px; height: 68px; width: min(1320px, 100% - 40px); }
+.brand { display: inline-flex; align-items: baseline; gap: .04em; text-decoration: none; font: 800 clamp(26px, 2.6vw, 36px)/1 "Outfit", var(--font-display); letter-spacing: -.02em; color: var(--text); white-space: nowrap; }
 .brand-mark { height: 1em; width: auto; flex: none; align-self: baseline; }
 .brand-name { display: inline-block; }
-.top .brand-name { position: relative; top: -5px; }      /* the title text sits 5px higher than the baseline; the icon stays where it was */
+.top .brand-name { position: relative; top: -3px; }      /* the title text sits a little higher than the baseline; the icon stays where it was */
 .nav { display: flex; gap: 26px; margin-left: auto; font-size: 15px; color: var(--muted); }
 .nav a { text-decoration: none; padding: 6px 2px; }
 .nav a:hover { color: var(--text); }
-.tools { display: flex; align-items: center; gap: 10px; }
+.tools { display: flex; align-items: center; gap: 10px; margin-left: auto; }
 .lang { position: relative; font-size: 13px; font-weight: 700; }
 .lang summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px; height: 38px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--surface); user-select: none; }
 .lang summary::-webkit-details-marker { display: none; }
@@ -89,21 +91,36 @@ html[data-theme="dark"] .moon { display: none; }
 .btn:hover { transform: translateY(-1px); }
 .btn-primary { background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: #fff; box-shadow: 0 12px 30px -10px rgba(109, 40, 217, .6); }
 .btn-primary:hover { box-shadow: 0 16px 36px -10px rgba(109, 40, 217, .75); }
+.btn-buy { background: var(--text); color: var(--bg); border-color: var(--text); font-weight: 800; }
+.btn-buy:hover { box-shadow: 0 0 0 3px var(--accent-soft), 0 12px 30px -12px rgba(109, 40, 217, .5); }
+/* "Buy a license": the amber outline of the licence chip in the app, a violet wash on hover */
+.btn-license { background: transparent; color: var(--license); border-color: var(--license); font-weight: 700; }
+.btn-license:hover { background: rgba(124, 58, 237, .16); color: var(--text); border-color: var(--accent); }
 .btn-ghost { background: var(--surface); color: var(--text); border-color: var(--line); }
 .btn-ghost:hover { border-color: var(--accent); }
 .btn[aria-disabled="true"] { opacity: .65; cursor: default; transform: none; }
 .btn-sm { height: 40px; padding: 0 16px; font-size: 14px; border-radius: 12px; }
+.btn-cta { height: 46px; padding: 0 26px; font-size: 16px; font-weight: 800; border-radius: 14px; }
 
-/* hero */
-.hero { padding: 72px 0 40px; }
-.hero .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
+/* hero: the headline, the two buttons and the real app window, centred */
+.hero { padding: 64px 0 56px; position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: -20% -10% auto; height: 70%; background: radial-gradient(60% 60% at 50% 0%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 70%); pointer-events: none; }
+.hero .wrap { position: relative; display: grid; gap: 52px; justify-items: center; }
+.hero-text { text-align: center; max-width: 860px; display: flex; flex-direction: column; align-items: center; }
+.hero-shot { width: min(1180px, 100%); }
+.window { border-radius: 16px; overflow: hidden; border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line)); box-shadow: 0 40px 90px -30px rgba(76, 29, 149, .55), 0 2px 10px rgba(0, 0, 0, .25); background: var(--surface); }
+.window img { width: 100%; height: auto; }
+.smartnote { display: flex; gap: 10px; align-items: flex-start; max-width: 760px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.smartnote svg { flex: none; width: 18px; height: 18px; margin-top: 2px; color: #c77d00; }
+.smartnote strong { color: var(--text); font-weight: 650; }
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-strong); }
 .eyebrow::before { content: ""; width: 22px; height: 2px; background: linear-gradient(90deg, var(--pink), var(--accent)); border-radius: 2px; }
-.hero h1 { font-size: clamp(40px, 5.2vw, 66px); margin: 18px 0 20px; }
+.hero h1 { font-size: clamp(40px, 6vw, 76px); margin: 18px 0 20px; }
 .hero h1 em, .grad { font-style: normal; background: linear-gradient(100deg, var(--pink), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.lead { font-size: 19px; color: var(--muted); max-width: 520px; }
-.actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 30px 0 22px; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 0; margin: 0; list-style: none; color: var(--muted); font-size: 14px; }
+.lead { font-size: 20px; color: var(--muted); max-width: 640px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 30px 0 22px; justify-content: center; }
+.btn-lg { height: 56px; padding: 0 30px; font-size: 17px; border-radius: 16px; }
+.chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; padding: 0; margin: 0; list-style: none; color: var(--muted); font-size: 14px; }
 .chips li::before { content: "✓"; color: var(--ok); font-weight: 800; margin-right: 8px; }
 
 /* before / after */
@@ -119,6 +136,11 @@ html[data-theme="dark"] .moon { display: none; }
 .tag { position: absolute; top: 14px; padding: 5px 11px; border-radius: 999px; background: rgba(15, 10, 30, .72); color: #fff; font-size: 12px; font-weight: 700; backdrop-filter: blur(6px); pointer-events: none; }
 .tag-l { left: 14px; } .tag-r { right: 14px; }
 .trial { margin-top: 18px; padding: 12px 16px; border-radius: 14px; background: var(--accent-soft); border: 1px solid var(--line); color: var(--text); font-size: 15px; line-height: 1.5; max-width: 520px; }
+.alert { display: flex; gap: 12px; align-items: flex-start; margin-top: 18px; padding: 14px 16px; max-width: 520px; border-radius: 14px; border: 2px solid #e9a21b; background: #fff6e0; color: #4a3200; font-size: 15px; line-height: 1.5; }
+.alert svg { flex: none; width: 26px; height: 26px; color: #c77d00; margin-top: 1px; }
+.alert strong { display: block; margin-bottom: 2px; font-size: 16px; }
+html[data-theme="dark"] .alert { background: #2d2108; border-color: #e9a21b; color: #ffe2a3; }
+html[data-theme="dark"] .alert svg { color: #f5b73c; }
 .sales-note { margin-top: 12px; color: var(--muted); font-size: 14px; line-height: 1.5; }
 .cap { display: flex; justify-content: space-between; color: var(--faint); font-size: 14px; margin-top: 12px; }
 
@@ -166,6 +188,9 @@ section { padding: 90px 0; }
 .plan h3 { font-size: 26px; }
 .price { font: 800 40px var(--font-display); letter-spacing: -.03em; }
 .price small { font: 500 16px var(--font); color: var(--muted); letter-spacing: 0; }
+.offer { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; color: var(--muted); font: 600 15px var(--font); }
+.offer s { text-decoration-thickness: 2px; }
+.offer-tag { background: var(--accent, #7c3aed); color: #fff; border-radius: 999px; padding: 3px 12px; font: 700 12px var(--font); letter-spacing: .04em; text-transform: uppercase; }
 .plan ul { list-style: none; margin: 4px 0 8px; padding: 0; display: grid; gap: 10px; color: var(--muted); font-size: 16px; }
 .plan li::before { content: "✓"; color: var(--ok); font-weight: 800; margin-right: 10px; }
 .plan .btn { margin-top: auto; }
@@ -216,7 +241,7 @@ footer a:hover { color: var(--text); }
 }
 
 @media (max-width: 960px) {
-  .hero .wrap, .privacy { grid-template-columns: 1fr; gap: 36px; }
+  .privacy { grid-template-columns: 1fr; gap: 36px; }
   .nav { display: none; }
   .top .wrap { gap: 12px; }
   .tools { margin-left: auto; }
@@ -235,7 +260,8 @@ footer a:hover { color: var(--text); }
   .top .brand { font-size: 22px; }
   .top .brand-name { top: -2px; }
   footer .brand { font-size: 28px; }
-  .top .btn { display: none; }
+  .top .btn-dl { display: none; }
+  .top .btn-cta { height: 42px; padding: 0 14px; font-size: 15px; }
   .tools { gap: 8px; }
   .lang summary { height: 44px; padding: 0 12px; }
   .icon-btn { width: 44px; height: 44px; }
@@ -278,12 +304,38 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .trio figcaption { margin-top: 10px; font-weight: 650; text-align: center; }
 .trio figure:last-child figcaption { color: var(--accent-strong); }
 @media (max-width: 700px) { .trio { grid-template-columns: 1fr; } }
-.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.gallery { display: grid; grid-template-columns: 1fr; gap: 28px; }
 .shotcard { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 18px 22px; display: flex; flex-direction: column; gap: 14px; }
 .shotcard.wide { grid-column: span 2; }
 .shotimg { display: grid; place-items: center; min-height: 0; }
-.shotimg img { max-width: 100%; height: auto; max-height: 560px; border-radius: 12px; }
+.shotimg img { display: block; width: 100%; max-width: 100%; height: auto; max-height: none; border-radius: 12px; }
 .shotcard.wide .shotimg img { max-height: none; width: 100%; border: 1px solid var(--line); box-shadow: var(--shadow); }
 .shotcard figcaption { display: grid; gap: 4px; }
 .shotcard figcaption span { color: var(--muted); font-size: 16px; }
 @media (max-width: 900px) { .gallery { grid-template-columns: 1fr; } .shotcard.wide { grid-column: auto; } }
+@media (max-width: 380px) { .top .icon-btn { display: none; } .top .brand { font-size: 20px; } }
+
+.hero-compare { max-width: 900px; margin: 0 auto 40px; }
+.hero-compare .cap { justify-content: center; text-align: center; }
+.stat { text-align: center; }
+.gallery { grid-template-columns: 1fr 1fr; }
+.shotcard.wide { grid-column: span 2; }
+.js .rise { transition-delay: 0s; }
+@media (max-width: 960px) { .hero { padding-top: 40px; } .hero .wrap { gap: 36px; } .gallery { grid-template-columns: 1fr; } .shotcard.wide { grid-column: auto; } }
+@media (max-width: 520px) { .btn-lg { height: 52px; } .hero-text .lead { font-size: 17px; } .smartnote { font-size: 13px; } }
+
+.pricing, .faq { margin-inline: auto; }
+
+/* the app window as a slider: it has the window's own proportions, no rounded frame of its own */
+.window .compare.window-compare { border-radius: 0; box-shadow: none; background: transparent; }
+.window-compare .line { bottom: auto; }
+.shotimg .window-compare { width: 100%; border-radius: 12px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.version { margin-top: 14px; color: var(--faint); font-size: 14px; }
+
+/* the screenshots of the app come in a dark and a light version; the one of the chosen theme is shown */
+html[data-theme="light"] .t-dark { display: none; }
+html[data-theme="dark"] .t-light { display: none; }
+
+/* small landing pages: the app window under the first paragraph */
+.lp-shot { margin: 24px 0; }
+.lp-shot img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line, rgba(128, 128, 128, .3)); }
