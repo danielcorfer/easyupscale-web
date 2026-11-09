@@ -93,14 +93,15 @@ html[data-theme="dark"] .moon { display: none; }
 .btn-primary:hover { box-shadow: 0 16px 36px -10px rgba(109, 40, 217, .75); }
 .btn-buy { background: var(--text); color: var(--bg); border-color: var(--text); font-weight: 800; }
 .btn-buy:hover { box-shadow: 0 0 0 3px var(--accent-soft), 0 12px 30px -12px rgba(109, 40, 217, .5); }
-/* "Buy a license": the amber outline of the licence chip in the app, a violet wash on hover */
-.btn-license { background: transparent; color: var(--license); border-color: var(--license); font-weight: 700; }
-.btn-license:hover { background: rgba(124, 58, 237, .16); color: var(--text); border-color: var(--accent); }
+/* Store purchase: clearly distinct from the free download action. */
+.btn-license { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; border-color: #d97706; font-weight: 800; box-shadow: 0 10px 26px -12px rgba(217, 119, 6, .75); }
+.btn-license:hover { background: linear-gradient(135deg, #fbbf24, #ea580c); color: #fff; border-color: #ea580c; box-shadow: 0 14px 30px -12px rgba(234, 88, 12, .7); }
 .btn-ghost { background: var(--surface); color: var(--text); border-color: var(--line); }
 .btn-ghost:hover { border-color: var(--accent); }
 .btn[aria-disabled="true"] { opacity: .65; cursor: default; transform: none; }
 .btn-sm { height: 40px; padding: 0 16px; font-size: 14px; border-radius: 12px; }
 .btn-cta { height: 46px; padding: 0 26px; font-size: 16px; font-weight: 800; border-radius: 14px; }
+.buy-options { display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* hero: the headline, the two buttons and the real app window, centred */
 .hero { padding: 64px 0 56px; position: relative; overflow: hidden; }
